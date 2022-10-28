@@ -1,0 +1,67 @@
+<div class="row row-ms px-3 mb-3 mx-1 m-lg-3 p-lg-3 mb-lg-5">
+    <p class="display-4">Hard & Soft Skill</p>
+    <div class="col-12 p-lg-3">
+        <button type="button" class="btn btn-outline-secondary btn-lg rounded-circle" id="btn-nuevo" (click)="open(content)"
+            *ngIf="isLogged">
+            <i class="fa-sharp fa-solid fa-plus"></i>
+        </button>
+    </div>
+    <div class="col d-flex justify-content-center col-lg-2 col-md-3" *ngFor="let skill of skills">
+            <div class="skills">
+                <circle-progress 
+                [percent]="skill.porcentaje" 
+                [radius]="80" 
+                [subtitle]="skill.nombreS"
+                [showImage]="true" 
+                [imageWidth]="100" 
+                [imageHeight]="100" 
+                [animation]="true" 
+                [imageSrc]=skill.imgS
+                [innerStrokeColor]="'#CDAC81'" 
+                [outerStrokeColor]="'#00303F'" 
+                [innerStrokeWidth]="2">
+                </circle-progress>
+                <div class="row justify-content-center">
+                    <div class="col col-auto">
+                    <button class="btn btn-outline-secondary rounded-circle" (click)="update(content, skill.id)" id="btn-editar"
+                        *ngIf="isLogged">
+                        <i class="bi bi-pencil-square"></i></button>
+                    </div>
+                    <div class="col col-auto">
+                    <button class="btn btn-outline-secondary rounded-circle" (click)="delete(skill.id)" id="btn-borrar"
+                        *ngIf="isLogged">
+                        <i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Skills</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form novalidate #f="ngForm">
+        <div class="form-group">
+
+            <label for="nombreS">Nombre de la Skill</label>
+            <input type="text" class="form-control" id="nombreS" name="nombreS" [(ngModel)]="nombreS" required>
+
+            <label for="porcentaje">Porcentaje de la Skill</label>
+            <input type="number" id="porcentaje" class="form-control" name="porcentaje" [(ngModel)]="porcentaje" required>
+
+            <label for="inputImg">Elegir foto</label>
+            <input id="inputImg" type="file" class="form-control" accept=".png, .jpg, .jepg"  (change)="cargarImagen($event)">
+
+            <img src={{imgS}} class="form-control" alt="imagenProyect">
+            <h4 *ngIf="cargando">Espere...</h4>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>

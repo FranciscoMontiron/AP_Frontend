@@ -1,0 +1,41 @@
+<div class="row slider pb-5">
+  <div class="col">
+    <div class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner mt-3">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="{{persona.banner}}" alt="foro banner">
+        </div>
+      </div>
+        <button class="carousel-control-next btn btn-secondary rounded-circle d-inline" id="btn-editar-banner" type="button"
+          *ngIf="isLogged" (click)="update(content, persona.id)">
+          <i class="bi bi-pencil-square"></i>
+        </button>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Banner</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form novalidate #f="ngForm">
+        <div class="form-group">
+
+            <label for="inputImg">Elegir foto</label>
+            <input id="inputImg" type="file" class="form-control" accept=".png, .jpg, .jepg"  (change)="cargarImagen($event)">
+            <img src={{banner}} class="form-control img-fluid" alt="imagenProyect">
+            <div class="d-flex justify-content-center">
+            <div class="spinner-border" *ngIf="cargando" role="status" >
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer" >
+      <button type="button" class="btn btn-outline-dark" *ngIf="!cargando" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>

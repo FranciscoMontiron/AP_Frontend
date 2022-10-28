@@ -1,0 +1,101 @@
+<div class="row acerca-de align-items-center px-4 mb-5">
+  <div class="col-12 col-lg-4 foto text-center">
+      <img src="{{persona.img}}" class="rounded-circle mb-3 img-fluid" alt="Foto de perfil">
+      <h1 class="nombre display-5">{{persona.nombre}} {{persona.apellido}}
+        <button class="btn btn  btn-outline-secondary rounded-circle d-inline" id="btn-editar" *ngIf="isLogged" (click)="update(content, persona.id)">
+          <i class="bi bi-pencil-square"></i>
+        </button>
+      </h1>
+  </div>
+
+  <div class="col-12 col-lg-8 info">
+    
+    <p class="profesion text-center display-5 mb-3">
+      {{persona.profesion}}
+    </p>
+
+    <h2 class="titulo text-center text-lg-start">Acerca de 
+      <button class="btn btn-outline-secondary rounded-circle" id="btn-editar" *ngIf="isLogged" (click)="update(contentd, persona.id)">
+        <i class="bi bi-pencil-square"></i>
+      </button>
+    </h2>
+
+
+    <p class="resumen lead">
+      {{persona.descripcion}}
+
+    </p>
+
+    <!--Editar para que sea de firebase-->
+    <div class="cv">
+      <a href="{{persona.cv}}" target="_blank" class="btn btn-secondary m-3 px-4 " id="btn-cv"><i class="fa-solid fa-file-pdf"></i>   CV</a>
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Persona</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form novalidate #f="ngForm">
+        <div class="form-group ">
+
+            <label for="nombre mb-1">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre" required>
+
+            <label for="urlProyecto mb-1">Apellido</label>
+            <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="apellido">
+
+            <label for="profesion mb-1">Profesion</label>
+            <input type="text" class="form-control" name="profesion" [(ngModel)]="profesion">
+
+            <label for="inputImg mb-1">Elegir foto</label>
+            <input id="inputImg" type="file" class="form-control mb-3" accept=".png, .jpg, .jepg"  (change)="cargarImagen($event)">
+            <img src={{img}} class="form-control" id="imgParcial" alt="imagenProyect">
+
+            <label for="inputPdf mt-3">Elegir cv formato PDF</label>
+            <input id="inputPdf" type="file" class="form-control" accept=".pdf"  (change)="cargarPdf($event)">
+            <div class="d-flex justify-content-center">
+              <div class="spinner-border mt-3" *ngIf="cargando" role="status" >
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+            </div>
+      </form>
+    </div>
+    <div class="modal-footer" >
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+
+
+  <ng-template #contentd let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Persona</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form novalidate #f="ngForm">
+        <div class="form-group">
+
+            <label for="descripcion">  Descripcion </label>
+            <textarea rows="10" cols="50" class="form-control" name="descripcion" [(ngModel)]="descripcion"></textarea>
+
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer" >
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+
+
+
+ 

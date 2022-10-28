@@ -1,0 +1,70 @@
+<div class="row row-ms px-3 mx-1 mb-3 m-lg-3 p-lg-3 mb-lg-5">
+        <p class="display-3">Experiencia</p>
+        <div class="col-12 p-lg-3">
+            <button type="button" class="btn btn-outline-secondary btn-lg rounded-circle" id="btn-nuevo" (click)="open(content)"
+                *ngIf="isLogged">
+                <i class="fa-sharp fa-solid fa-plus"></i>
+            </button>
+        </div>
+
+        <div class="col-sm">
+            <div class="table-responsive">
+                <table class="table border-dark table-hover">
+                    <tbody class="lista" cdkDropList (cdkDropListDropped)="drop($event)">
+                        <tr class="elem" *ngFor="let Experiencia of expe" cdkDrag>
+                            <td class="col-4">
+                                <p class="h3">{{Experiencia.nombreE}}</p>
+                                <span *ngIf="!Experiencia.actual">
+                                    {{Experiencia.fechaInicio | date: 'dd/MM/yy'}} - {{Experiencia.fechaFin | date: 'dd/MM/yy'}}
+                                </span>
+                                <span *ngIf="Experiencia.actual">
+                                    {{Experiencia.fechaInicio | date: 'dd/MM/yy'}} - Actualidad
+                                </span>
+                                
+                            </td>
+                            <td class="col-6 lead">{{Experiencia.descripcionE}}</td>
+                            <td class="col-2 " *ngIf="isLogged">
+                                <button class="btn btn-outline-secondary m-1 rounded-circle" id="btn-editar"
+                                    (click)="update(content, Experiencia.id)">
+                                    <i class="bi bi-pencil-square"></i></button>
+                                <button class="btn btn-outline-secondary m-1 rounded-circle" id="btn-borrar"
+                                    (click)="delete(Experiencia.id)">
+                                    <i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</div>
+<!-- Modal -->
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Agregar experiencia</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form novalidate #f="ngForm">
+            <div class="form-group">
+
+                <label for="nombreE">Nombre de la empresa</label>
+                <input type="text" class="form-control" id="nombreE" name="nombreE" [(ngModel)]="nombreE" required>
+                <label for="descripcionE">Descripcion de la tarea</label>
+                <input type="text" class="form-control" id="descripcionE" name="descripcionE" [(ngModel)]="descripcionE" required>
+                <label for="fechaInicio">Fecha de inicio</label>
+                <input type="date" class="form-control" id="fechaInicio" name="fechaInicio" [(ngModel)]="fechaInicio" required>
+                <label for="fechaFin">Fecha de finalización</label>
+                <input type="date" class="form-control" id="fechaFin" name="fechaFin" [(ngModel)]="fechaFin" required>
+                <br>
+                <label class="form-control" for="actual">Actualmente
+                    <input type="checkbox" id="actual" name="actual" value="actual" [(ngModel)]="actual">
+                </label>
+                
+                
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>

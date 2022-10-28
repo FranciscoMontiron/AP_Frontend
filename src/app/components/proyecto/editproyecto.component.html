@@ -1,0 +1,19 @@
+<div class="container" *ngIf="proyecto">
+    <form #f="ngForm" (ngSubmit)="onUpdate()" noValidate>
+
+        <input type="text" placeholder="Titulo" id="tituloProyect" name="tituloProyect" [(ngModel)]="proyecto.nombreP" required>
+
+        <input type="text" placeholder="URL del Proyecto..." id="urlProyecto" name="urlProyecto" [(ngModel)]="proyecto.urlP" required>
+
+        <textarea type="text" placeholder="Descripcion..." id="descripcionProyect" name="descripcionProyect" [(ngModel)]="proyecto.descripcionP" required></textarea>
+
+        <label for="inputImg">Cambiar Foto</label>
+        <br>
+        <input id="inputImg" type="file" accept=".png, .jpg, .jepg"  (change)="cargarImagen($event)">
+        <br>
+        <img src={{proyecto.imgP}} alt="imagenExp">
+        <br>
+        <h4 *ngIf="cargando">Espere...</h4>
+        <button type="submit">Editar</button>
+    </form>
+</div>

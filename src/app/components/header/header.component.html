@@ -1,0 +1,31 @@
+
+  <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <div class="container-fluid">
+    <a class="navbar-brand col-xs-12 col-sm-2 col-md-2 col-lg-2 d-none d-xl-inline-block d-sm-inline-block col-auto" href="/">
+      <img src="../../../assets/APLogo.png" alt="logo Argentina programa" width="120" height="70"
+        class="d-inline-block align-text-bot img-fluid">
+      <span class=" d-none d-xl-inline-block d-md-inline-block d-sm-inline-block" id="yoProgramo">
+        #Yo programo
+      </span>
+    </a>
+    <ul class="nav justify-content-end col-auto">
+      <li class="nav-item">
+        <a class="nav-link m-2" style="color: grey;" target="_blank" href="https://github.com/FranciscoMontiron"><i
+            class="fa-brands fa-github"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link m-2" style="color: blue;" target="_blank" href="https://www.linkedin.com/in/francisco-montiron-3212b7129/"><i
+            class="fa-brands fa-linkedin"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link m-2" style="color: orange;" target="_blank" href="https://www.instagram.com/francisco_montiron/"><i
+            class="fa-brands fa-instagram"></i></a>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-success m-2 px-2" (click)="login()" *ngIf="!isLogged">Login</button>
+        <button type="button" class="btn btn-danger m-2 px-2" (click)="onLogOut()" *ngIf="isLogged">Cerrar
+          Sesion</button>
+      </li>
+    </ul>
+  </div>
+  </nav>

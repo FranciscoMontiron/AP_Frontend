@@ -1,0 +1,21 @@
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #F5F4F4;
+    
+    }
+
+.card {
+    background-color: #00303F;
+}
+
+button{
+    color: #CDAC81  ;
+}
+
+h2 {
+    color: #F5F4F4    ;
+}
+
+label {
+    color: #F5F4F4  ;
+}

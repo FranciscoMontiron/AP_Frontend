@@ -1,0 +1,16 @@
+<div class="container">
+    <form #f="ngForm" (ngSubmit)="onCreate()" noValidate>
+        <input type="text" placeholder="Titulo" id="tituloProyect" name="nombreS" [(ngModel)]="nombreS" required>
+
+        <input type="number" placeholder="Porcentaje de la skill" id="urlProyecto" name="porcentaje" [(ngModel)]="porcentaje" required>
+
+        <label for="inputImg">Elegir foto</label>
+        <br>
+        <input id="inputImg" type="file" accept=".png, .jpg, .jepg"  (change)="cargarImagen($event)">
+        <br>
+        <img src={{imgS}} alt="imagenSkill">
+        <br>
+        <h4 *ngIf="cargando">Espere...</h4>
+        <button *ngIf="!cargando" type="submit">Agregar</button>
+    </form>
+</div>

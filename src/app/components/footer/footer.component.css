@@ -1,0 +1,10 @@
+footer{
+    color: #F5F4F4;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 1px -5px 15px #CDAC81 !important;
+    height: 90px;
+    justify-content: center;
+}

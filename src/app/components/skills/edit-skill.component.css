@@ -1,0 +1,72 @@
+.container-skill{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form{
+    box-shadow: 0 0 10px 10px rgb(85, 17, 17);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    max-height: 90vh;
+    background-color: rgba(5, 7, 12, .7);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+input{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#inputImg{
+    display: none;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    background-color: rgba(85, 17, 17, 0.377);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+button{
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #fff;
+}
+
+button:active{
+    transform: scale(.9);
+    -webkit-transform: scale(.9);
+    -moz-transform: scale(.9);
+    -ms-transform: scale(.9);
+    -o-transform: scale(.9);
+}
+
+label{
+    text-align: center;
+    border: 1px solid #fff;
+    padding: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+label:active{
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+}

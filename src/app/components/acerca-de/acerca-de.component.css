@@ -1,0 +1,42 @@
+
+#btn-editar {
+    color: #CDAC81;
+    margin-left: 15px;
+    margin-bottom: 23px;
+}
+
+#imgParcial {
+    max-width: 60%;   
+}
+
+.acerca-de .info #btn-cv {
+    background-color:#6f42c1 !important;
+}
+
+.acerca-de .cv {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.acerca-de .info .profesion {
+    color: #CDAC81;
+}
+
+.acerca-de .info .titulo {
+    color: #00303F;
+}
+
+.acerca-de .foto img {
+    max-width:50%;
+}
+
+.acerca-de .foto .nombre {
+    color: #00303F;
+}
+
+
+
+
+
+

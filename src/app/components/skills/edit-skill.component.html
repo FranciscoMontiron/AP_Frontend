@@ -1,0 +1,17 @@
+<div class="container" *ngIf="skill">
+    <form #f="ngForm" (ngSubmit)="onUpdate()" noValidate>
+
+        <input type="text" placeholder="nombre" id="tituloProyect" name="nombreS" [(ngModel)]="skill.nombreS" required>
+
+        <input type="number" placeholder="procentaje de la skill" id="urlProyecto" name="porcentaje" [(ngModel)]="skill.porcentaje" required>
+
+        <label for="inputImg">Cambiar Foto</label>
+        <br>
+        <input id="inputImg" type="file" accept=".png, .jpg, .jepg"  (change)="cargarImagen($event)">
+        <br>
+        <img src={{skill.imgS}} alt="imagenExp">
+        <br>
+        <h4 *ngIf="cargando">Espere...</h4>
+        <button type="submit">Editar</button>
+    </form>
+</div>
